@@ -36,7 +36,7 @@ class Prompts:
 class ChatGPT:
     def __init__(self):
         self.prompt = Prompts()
-        self.model = "text-davinci-003"
+        self.model = "gpt-3.5-turbo"
         self.temperature = 0.9
         self.frequency_penalty = 0
         self.presence_penalty = 0.6
@@ -51,9 +51,9 @@ class ChatGPT:
             presence_penalty=self.presence_penalty,
             max_tokens=self.max_tokens
         )
-        print("AI回答內容：")
+        print("AI回复內容：")
         print(response['choices'][0]['text'].strip())
-        print("AI原始回覆資料內容：")
+        print("AI原始回复資料內容：")
         print(response)
         return response['choices'][0]['text'].strip()
 
@@ -119,7 +119,7 @@ class ChatGPT3TelegramBot:
         try:
             self.chatgpt.prompt.add_msg(f"{user_message}?\n")
             response = self.chatgpt.get_response()  # ChatGPT產生的回答
-            print("AI回答內容2：")
+            print("AI回复內容2：")
             print(response)
             return response
 
